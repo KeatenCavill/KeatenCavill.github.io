@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keaten Cavill E- Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-darker: #020204;
+            --card-bg: #121214;
+            --accent: #ff1111; /* MAIN RED */
+            --accent-soft: rgba(255, 17, 17, 0.75);
+            --accent-secondary: #ff4444;
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --max-width: 1100px;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.8);
+            --shadow-hover: 0 25px 55px rgba(0, 0, 0, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        main {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(255, 0, 0, 0.22), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.8), transparent 55%),
+                linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
+        }
+
+        .page-shell {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem 3rem;
+        }
+
+        /* ---------- TOP BAR ---------- */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* KC badge removed */
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .tag-pill {
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: radial-gradient(
+                    circle at 0% 0%,
+                    rgba(255, 17, 17, 0.3),
+                    transparent 55%
+                ),
+                rgba(5, 5, 5, 0.95);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* ---------- HERO / BANNER ---------- */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr); /* single column now */
+            gap: 2rem;
+            border-radius: var(--radius-lg);
+            padding: 2.25rem 2rem;
+            background:
+                radial-gradient(circle at top right, rgba(255, 0, 0, 0.28), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.9), transparent 60%),
+                linear-gradient(135deg, #0b0507, #050104);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.02),
+                rgba(255, 255, 255, 0.02) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+            opacity: 0.4;
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+        }
+
+        .hero-left {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.8rem 0.28rem;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 1);
+            margin-bottom: 0.9rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(255, 17, 17, 0.4);
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.1rem);
+            line-height: 1.15;
+            margin: 0 0 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title span.accent {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 34rem;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .meta-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--accent-secondary);
+            box-shadow: 0 0 14px rgba(255, 68, 68, 0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 999px;
+            padding: 0.65rem 1.3rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease,
+                background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff1111, #aa0202);
+            color: #fff;
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 1),
+                0 0 18px rgba(255, 17, 17, 0.7);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-1px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+        }
+
+        /* ---------- SECTIONS ---------- */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .section-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .section-controls {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ---------- REPO GRID ---------- */
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .repo-card {
+            position: relative;
+            padding: 1.2rem 1.1rem 1rem;
+            border-radius: var(--radius-md);
+            background:
+                radial-gradient(circle at top right, rgba(255, 0, 0, 0.3), transparent 65%),
+                linear-gradient(135deg, #131315, #070708);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            transition: transform 0.16s ease, box-shadow 0.16s ease,
+                border-color 0.16s ease, background 0.16s ease;
+            cursor: pointer;
+        }
+
+        .repo-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top left,
+                    rgba(255, 0, 0, 0.25),
+                    transparent 60%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 0, 0, 0.7);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .repo-card:hover::before {
+            opacity: 1;
+        }
+
+        .repo-name-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .repo-name {
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .repo-tag {
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+
+        .repo-description {
+            margin-top: 0.2rem;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            min-height: 2.4em;
+        }
+
+        .repo-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.9rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .repo-meta-left {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .pill-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+        }
+
+        .pill-muted {
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent-soft);
+        }
+
+        .repo-link span.icon {
+            font-size: 0.9rem;
+            transform: translateY(1px);
+        }
+
+        /* ---------- STATUS TEXT ---------- */
+        .status-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            margin-top: 2.4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            .page-shell {
+                padding: 1.2rem 1rem 2.4rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="page-shell">
+        <!-- TOP BAR -->
+        <header class="top-nav">
+            <div class="tag-pill">GitHub • Projects • Experiments</div>
+        </header>
+
+        <!-- HERO / BANNER -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    <span>Available for collaboration</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Hi, I’m <span class="accent">Keaten Cavill</span> —<br />
+                    a developer who loves shipping ideas.
+                </h1>
+
+                <p class="hero-subtitle">
+                    This is my GitHub e-portfolio: games, tools, experiments, and
+                    coursework all in one place. Every card below is a live
+                    repository you can explore, fork, or run.
+                </p>
+
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <span class="meta-dot"></span>
+                        <span>Focus: game dev • web • backend</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>Built with ♥ using GitHub Pages</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a id="heroGithubLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">
+                        View GitHub Profile
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="section-header">
+                <div class="section-title-block">
+                    <div class="section-eyebrow">Featured work</div>
+                    <div class="section-title">GitHub repositories</div>
+                    <div class="section-subtitle">
+                        Owned and <strong>collaborated</strong> repos from my profile.
+                        Click any project card to open the repository on GitHub.
+                    </div>
+                </div>
+                <div class="section-controls">
+                    Public repositories • Owned + collaborated
+                </div>
+            </div>
+
+            <div id="status" class="status-text">Loading repositories…</div>
+
+            <div id="repoGrid" class="repo-grid"></div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <span>Built with ♥ , HTML, CSS &amp; GitHub Pages.</span>
+        </footer>
+    </div>
+</main>
+
+<script>
+  // ------------- CONFIG -------------
+  const GITHUB_USERNAME = "KeatenCavill"; // <--- set this
+
+  // Paste any collaborated repo URLs here. That's it.
+  const COLLAB_REPO_LINKS = [
+   "https://github.com/hypercomrade/terminal-cant-hurt-you"
+  ];
+
+  // ------------- UTIL -------------
+  function scrollToProjects() {
+    const el = document.getElementById("projects");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function formatDate(iso) {
+    if (!iso) return "Unknown";
+    const d = new Date(iso);
+    return d.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }
+
+  // ------------- RENDERING -------------
+  function renderRepos(repos) {
+    const grid = document.getElementById("repoGrid");
+    const status = document.getElementById("status");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    if (!repos || repos.length === 0) {
+      status.textContent =
+        "No repositories found. Check your username and collab links.";
+      return;
+    }
+
+    status.textContent = "";
+
+    const usernameLower = (GITHUB_USERNAME || "").toLowerCase();
+
+    repos.forEach((repo) => {
+      const card = document.createElement("article");
+      card.className = "repo-card";
+      card.tabIndex = 0;
+
+      const description =
+        repo.description ||
+        "No description yet — work-in-progress or experimental.";
+
+      const language = repo.language || "Various";
+      const stars = repo.stargazers_count || 0;
+      const updated = formatDate(repo.updated_at);
+
+      let ownership = repo._ownership || "Owned";
+      if (!repo._ownership && repo.owner && repo.owner.login) {
+        ownership =
+          repo.owner.login.toLowerCase() === usernameLower
+            ? "Owned"
+            : "Collaborated";
+      }
+
+      const ownerName = (repo.owner && repo.owner.login) || "Unknown";
+
+      card.innerHTML = `
+        <div class="repo-name-row">
+          <h3 class="repo-name">${repo.name}</h3>
+          <div class="repo-tag">${language}</div>
+        </div>
+
+        <p class="repo-description">${description}</p>
+
+        <div class="repo-meta-row">
+          <div class="repo-meta-left">
+            <div class="pill-dot"></div>
+            <div class="pill-muted">${ownership}</div>
+            <div class="pill-muted">${stars} ★ stars</div>
+            <div class="pill-muted">Updated ${updated}</div>
+            <div class="pill-muted">Owner: ${ownerName}</div>
+          </div>
+          <div class="repo-link">
+            <span>Open</span>
+            <span class="icon">↗</span>
+          </div>
+        </div>
+      `;
+
+      const url = repo.html_url;
+      card.addEventListener("click", () => {
+        if (url) window.open(url, "_blank");
+      });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (url) window.open(url, "_blank");
+        }
+      });
+
+      grid.appendChild(card);
+    });
+  }
+
+  // ------------- GITHUB FETCHES -------------
+  async function fetchOwnedRepos() {
+    if (!GITHUB_USERNAME) return [];
+
+    const url = `https://api.github.com/users/${encodeURIComponent(
+      GITHUB_USERNAME
+    )}/repos?per_page=100&sort=updated&type=owner`;
+
+    try {
+      const resp = await fetch(url);
+      if (!resp.ok) {
+        console.error("Owned repos error", resp.status, await resp.text());
+        return [];
+      }
+      const data = await resp.json();
+      return data
+        .sort(
+          (a, b) =>
+            new Date(b.updated_at).getTime() -
+            new Date(a.updated_at).getTime()
+        )
+        .map((r) => ({ ...r, _ownership: "Owned" }));
+    } catch (err) {
+      console.error("Owned repos fetch failed", err);
+      return [];
+    }
+  }
+
+  function parseRepoFromUrl(url) {
+    // handles things like https://github.com/owner/repo or with trailing slash
+    const match = url.match(/github\.com\/([^\/]+)\/([^\/#?]+)/i);
+    if (!match) return null;
+    return { owner: match[1], repo: match[2] };
+  }
+
+  async function fetchSingleCollabRepo(link) {
+    const parsed = parseRepoFromUrl(link);
+    if (!parsed) {
+      console.warn("Could not parse repo from URL:", link);
+      return null;
+    }
+    const apiURL = `https://api.github.com/repos/${parsed.owner}/${parsed.repo}`;
+
+    try {
+      const resp = await fetch(apiURL);
+      if (!resp.ok) {
+        console.error("Collab repo error", apiURL, resp.status, await resp.text());
+        return null;
+      }
+      const data = await resp.json();
+      return { ...data, _ownership: "Collaborated" };
+    } catch (err) {
+      console.error("Collab repo fetch failed", apiURL, err);
+      return null;
+    }
+  }
+
+  async function fetchCollaboratedRepos() {
+    if (!COLLAB_REPO_LINKS || COLLAB_REPO_LINKS.length === 0) return [];
+    const promises = COLLAB_REPO_LINKS.map(fetchSingleCollabRepo);
+    const results = await Promise.all(promises);
+    return results.filter(Boolean);
+  }
+
+  // ------------- INIT -------------
+  async function loadPortfolio() {
+    const status = document.getElementById("status");
+    const heroLink = document.getElementById("heroGithubLink");
+
+    if (heroLink && GITHUB_USERNAME) {
+      heroLink.href = `https://github.com/${GITHUB_USERNAME}`;
+    }
+
+    status.textContent = "Loading repositories…";
+
+    try {
+      const [owned, collab] = await Promise.all([
+        fetchOwnedRepos(),
+        fetchCollaboratedRepos(),
+      ]);
+
+      const all = [...owned, ...collab];
+
+      if (!all.length) {
+        status.textContent =
+          "No repositories found. Check your username and collab links.";
+        return;
+      }
+
+      status.textContent = "";
+      renderRepos(all);
+    } catch (err) {
+      console.error("loadPortfolio error", err);
+      status.textContent =
+        "Something went wrong while loading repositories. Check the browser console for details.";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
+    loadPortfolio();
+  });
+</script>
+
+
+</body>
+</html>
